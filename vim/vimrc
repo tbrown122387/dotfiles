@@ -35,6 +35,7 @@ set laststatus=2
 set scrolloff=5
 set cursorline
 set termguicolors
+colorscheme desert
 
 " ---------------------------------------------------------------------------
 " Indentation
