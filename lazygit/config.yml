@@ -3,15 +3,13 @@ gui:
   showFileTree: true
   showCommandLog: true
   nerdFontsVersion: ""
-
+  sidePanelWidth: 0.25
 git:
-  paging:
-    colorArg: always
+  diffRenderers:
+    - command: delta --{{colorScheme}} --paging=never --side-by-side
   autoFetch: true
   autoRefresh: true
-
 confirmOnQuit: true
-
 keybinding:
   universal:
     quit: "q"
