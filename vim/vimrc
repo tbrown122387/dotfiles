@@ -1,0 +1,79 @@
+" ---------------------------------------------------------------------------
+" General
+" ---------------------------------------------------------------------------
+set nocompatible
+filetype plugin indent on
+syntax on
+
+set encoding=utf-8
+set backspace=indent,eol,start
+set hidden                     " allow switching buffers without saving
+set mouse=a                    " mouse support in all modes
+set clipboard^=unnamed,unnamedplus  " use system clipboard where available
+set updatetime=300
+set signcolumn=yes
+
+" Keep swap/backup/undo files out of the working directory
+set directory=~/.vim/swap//
+set backupdir=~/.vim/backup//
+set undodir=~/.vim/undo//
+set undofile
+for d in [&directory, &backupdir, &undodir]
+  if !isdirectory(d)
+    call mkdir(d, 'p', 0700)
+  endif
+endfor
+
+" ---------------------------------------------------------------------------
+" UI
+" ---------------------------------------------------------------------------
+set number relativenumber
+set ruler
+set showcmd
+set wildmenu
+set laststatus=2
+set scrolloff=5
+set cursorline
+set termguicolors
+
+" ---------------------------------------------------------------------------
+" Indentation
+" ---------------------------------------------------------------------------
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent
+set smartindent
+
+" ---------------------------------------------------------------------------
+" Search
+" ---------------------------------------------------------------------------
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+" ---------------------------------------------------------------------------
+" Splits
+" ---------------------------------------------------------------------------
+set splitright
+set splitbelow
+
+" ---------------------------------------------------------------------------
+" Keymaps
+" ---------------------------------------------------------------------------
+let mapleader = ","
+
+" Clear search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Move between splits with Ctrl+hjkl
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Quick save/quit
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>

@@ -1,0 +1,17 @@
+gui:
+  mouseEvents: true
+  showFileTree: true
+  showCommandLog: true
+  nerdFontsVersion: ""
+
+git:
+  paging:
+    colorArg: always
+  autoFetch: true
+  autoRefresh: true
+
+confirmOnQuit: true
+
+keybinding:
+  universal:
+    quit: "q"
