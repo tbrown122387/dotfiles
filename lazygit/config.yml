@@ -3,7 +3,7 @@ gui:
   showFileTree: true
   showCommandLog: true
   nerdFontsVersion: ""
-  sidePanelWidth: 0.25
+  sidePanelWidth: 0.2
 git:
   diffRenderers:
     - command: delta --{{colorScheme}} --paging=never --side-by-side
