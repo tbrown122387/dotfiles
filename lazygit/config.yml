@@ -6,7 +6,7 @@ gui:
   sidePanelWidth: 0.2
 git:
   diffRenderers:
-    - command: delta --{{colorScheme}} --paging=never --side-by-side
+    - command: delta --{{colorScheme}} --paging=never
   autoFetch: true
   autoRefresh: true
 confirmOnQuit: true
