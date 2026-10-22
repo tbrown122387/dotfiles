@@ -76,6 +76,7 @@ main() {
   link "$DOTFILES_DIR/tmux/tmux.conf"     "$HOME/.tmux.conf"
   link "$DOTFILES_DIR/tmux/start.sh"      "$HOME/.local/bin/tmux-start"
   link "$DOTFILES_DIR/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"
+  link "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
 
   echo "Done."
 }

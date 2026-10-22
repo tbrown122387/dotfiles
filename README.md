@@ -19,6 +19,7 @@ cd ~/.dotfiles
   - `vim/vimrc` -> `~/.vimrc`
   - `tmux/tmux.conf` -> `~/.tmux.conf`
   - `lazygit/config.yml` -> `~/.config/lazygit/config.yml`
+  - `claude/settings.json` -> `~/.claude/settings.json`
 - Backs up any pre-existing real (non-symlink) config files to
   `~/.dotfiles-backup/<timestamp>/` before overwriting them.
 
@@ -28,6 +29,7 @@ cd ~/.dotfiles
 vim/vimrc           sensible vim defaults, no plugin manager required
 tmux/tmux.conf      mouse support, vi-style pane nav/copy mode, status bar
 lazygit/config.yml  mouse support, autofetch/autorefresh
+claude/settings.json  Claude Code telemetry/data-sharing opt-outs, UI/model prefs
 install.sh          installs the tools above and symlinks the configs
 ```
 

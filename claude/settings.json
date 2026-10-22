@@ -1,0 +1,20 @@
+{
+  "env": {
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_BUG_COMMAND": "1",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1"
+  },
+  "feedbackDrafts": "off",
+  "effortLevel": "medium",
+  "modelSettings": {
+    "claude-sonnet-5": {
+      "effortLevel": "high"
+    }
+  },
+  "tui": "fullscreen",
+  "theme": "dark",
+  "agentPushNotifEnabled": true
+}
