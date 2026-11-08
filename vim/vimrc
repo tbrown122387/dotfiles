@@ -78,3 +78,49 @@ nnoremap <C-l> <C-w>l
 " Quick save/quit
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+
+" ---------------------------------------------------------------------------
+" clang-tidy
+" ---------------------------------------------------------------------------
+function! RunClangTidy()
+  let l:file = expand('%:p')
+  if empty(l:file)
+    echo 'No file to run clang-tidy on'
+    return
+  endif
+  let l:db = findfile('compile_commands.json', expand('%:p:h') . ';')
+  let l:cmd = 'clang-tidy ' . shellescape(l:file)
+  if !empty(l:db)
+    let l:cmd .= ' -p ' . shellescape(fnamemodify(l:db, ':h'))
+  else
+    let l:cmd .= ' --'
+  endif
+  let &makeprg = l:cmd
+  silent make!
+  botright cwindow
+  redraw!
+endfunction
+
+command! ClangTidy call RunClangTidy()
+nnoremap <leader>ct :ClangTidy<CR>
+
+" ---------------------------------------------------------------------------
+" clang-format
+" ---------------------------------------------------------------------------
+function! RunClangFormat()
+  let l:bin = executable('clang-format') ? 'clang-format' : 'clang-format-21'
+  if !executable(l:bin)
+    echo 'clang-format not found in PATH'
+    return
+  endif
+  let l:winview = winsaveview()
+  execute 'silent %!' . l:bin . ' --assume-filename=' . shellescape(expand('%'))
+  if v:shell_error
+    undo
+    echo 'clang-format failed, buffer left unchanged'
+  endif
+  call winrestview(l:winview)
+endfunction
+
+command! ClangFormat call RunClangFormat()
+nnoremap <leader>cf :ClangFormat<CR>
