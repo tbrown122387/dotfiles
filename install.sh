@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Symlinks this repo's configs into place and installs vim/tmux/lazygit
+# Symlinks this repo's configs into place and installs neovim/tmux/lazygit
 # if they're missing. Safe to re-run on any machine.
 
 set -euo pipefail
@@ -22,7 +22,7 @@ link() {
 
 install_packages() {
   local missing=()
-  command -v vim     >/dev/null 2>&1 || missing+=(vim)
+  command -v nvim    >/dev/null 2>&1 || missing+=(neovim)
   command -v tmux    >/dev/null 2>&1 || missing+=(tmux)
   command -v lazygit >/dev/null 2>&1 || missing+=(lazygit)
 
@@ -72,7 +72,7 @@ install_lazygit_from_github() {
 main() {
   install_packages
 
-  link "$DOTFILES_DIR/vim/vimrc"          "$HOME/.vimrc"
+  link "$DOTFILES_DIR/nvim"                "$HOME/.config/nvim"
   link "$DOTFILES_DIR/tmux/tmux.conf"     "$HOME/.tmux.conf"
   link "$DOTFILES_DIR/tmux/start.sh"      "$HOME/.local/bin/tmux-start"
   link "$DOTFILES_DIR/lazygit/config.yml" "$HOME/.config/lazygit/config.yml"

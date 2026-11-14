@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal configs for vim, tmux, and lazygit, plus a script to set them up
+Personal configs for neovim, tmux, and lazygit, plus a script to set them up
 on a new machine.
 
 ## Setup on a new machine
@@ -12,11 +12,11 @@ cd ~/.dotfiles
 ```
 
 `install.sh` is idempotent:
-- Installs `vim`, `tmux`, and `lazygit` if they're missing (via `brew` on
+- Installs `neovim`, `tmux`, and `lazygit` if they're missing (via `brew` on
   macOS, `apt-get` on Debian/Ubuntu; `lazygit` falls back to a GitHub
   release download on Linux since it's not in apt).
 - Symlinks this repo's configs into place:
-  - `vim/vimrc` -> `~/.vimrc`
+  - `nvim/` -> `~/.config/nvim/`
   - `tmux/tmux.conf` -> `~/.tmux.conf`
   - `lazygit/config.yml` -> `~/.config/lazygit/config.yml`
   - `claude/settings.json` -> `~/.claude/settings.json`
@@ -26,7 +26,10 @@ cd ~/.dotfiles
 ## Layout
 
 ```
-vim/vimrc           sensible vim defaults, no plugin manager required
+nvim/               neovim config (Lua), lazy.nvim-managed
+  init.lua          loads config.options/keymaps/commands/lazy
+  lua/config/       options, keymaps, clang-tidy/clang-format commands
+  lua/plugins/      lazy.nvim plugin specs (empty for now, add files here)
 tmux/tmux.conf      mouse support, vi-style pane nav/copy mode, status bar
 lazygit/config.yml  mouse support, autofetch/autorefresh
 claude/settings.json  Claude Code telemetry/data-sharing opt-outs, UI/model prefs
