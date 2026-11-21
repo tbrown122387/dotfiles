@@ -5,6 +5,11 @@ local map = vim.keymap.set
 -- Clear search highlight
 map("n", "<leader><space>", ":nohlsearch<CR>", { silent = true })
 
+-- Search for visually selected text with * / # (exits visual mode
+-- instead of extending the selection, so only matches get highlighted)
+map("x", "*", [[y/\V<C-R>"<CR>]], { silent = true })
+map("x", "#", [[y?\V<C-R>"<CR>]], { silent = true })
+
 -- Move between splits with Ctrl+hjkl
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
